@@ -6,14 +6,14 @@ background-size: cover;
 background-repeat: no-repeat;
 z-index: 50;
 }
-.Boost input{
+.Boostinputs{
 background-image: url(./assets/images/bg-shorten-desktop.svg);
-background-position:center;
+background-position:top;
 background-size: cover;
 background-repeat: no-repeat;
-z-index: 50;
-overflow: hidden;
+z-index:10;
 }
+
 
 
 @media(max-width:600px){
@@ -24,12 +24,12 @@ background-size: cover;
 background-repeat: no-repeat;
 z-index: 50;
 }
-.Boost input{
+.Boostinputs{
 background-image: url(./assets/images/bg-shorten-mobile.svg);
-background-position:center;
+background-position:bottom 40px right;
 background-size: cover;
 background-repeat: no-repeat;
-z-index: 50;
-overflow: hidden;
+z-index:3 ;
+
 }
 }

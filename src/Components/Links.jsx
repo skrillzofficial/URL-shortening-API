@@ -93,7 +93,7 @@ const Links = () => {
     <div className="pt-8 bg-[hsl(0,0%,75%)] mt-25">
       <div className="container mx-auto w-11/12 space-y-10 py-10 relative">
         {/* URL Shortener Form */}
-        <div className="p-5   bg-[hsl(257,27%,26%)] rounded-md absolute top-[-8%] left-[50%] -translate-x-1/2 w-full">
+        <div className="p-5 Boostinputs bg-[hsl(257,27%,26%)] rounded-md absolute top-[-8%] left-[50%] -translate-x-1/2 w-full">
           <form
             onSubmit={handleSubmit}
             className="flex  md:flex-row flex-col gap-3"
@@ -107,7 +107,7 @@ const Links = () => {
                   setError("");
                 }}
                 placeholder="Shorten a link here.."
-                className={`py-3 pl-3 text-[12px] bg-white rounded-md w-full  ${
+                className={`py-3 pl-3 text-[12px] bg-white z-5 rounded-md w-full  ${
                   error ? "border-red-500 border-2" : ""
                 }`}
               />
