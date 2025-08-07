@@ -91,7 +91,7 @@ const Links = () => {
     <div className="pt-8 bg-[hsl(0,0%,75%)] mt-25">
       <div className="container mx-auto w-11/12 space-y-10 py-10 relative">
         {/* URL Shortener Form */}
-        <div className="input p-5 bg-[hsl(257,27%,26%)] rounded-md absolute top-[-8%] left-[50%] -translate-x-1/2 w-full">
+        <div className="p-5 bg-[hsl(257,27%,26%)] rounded-md absolute top-[-8%] left-[50%] -translate-x-1/2 w-full">
           <form
             onSubmit={handleSubmit}
             className="flex md:flex-row flex-col gap-3"
@@ -221,8 +221,8 @@ const Links = () => {
       </div>
 
       {/* Keep your existing Boost section */}
-      <div className="bg-[hsl(259,35%,14%)] container">
-        <div className="boost-section text-white text-center container mx-auto w-11/12 font-semibold py-18 space-y-2">
+      <div className="Boost bg-[hsl(259,35%,14%)] container">
+        <div className="  text-white text-center container mx-auto w-11/12 font-semibold py-18 space-y-2">
           <div className="container space-y-3 py-16">
             <h2 className="text-[28px]">Boost your links today</h2>
             <button className="bg-[hsl(180,66%,49%)] py-2 px-10 rounded-full text-[20px] hover:bg-[hsl(180,66%,69%)]">

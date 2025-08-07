@@ -1,1 +1,7 @@
 @import "tailwindcss";
+.Boost{
+background-image: url(./assets/images/bg-boost-mobile.svg);
+background-position: 110% -400%;
+background-repeat: no-repeat;
+z-index: 2;
+}
