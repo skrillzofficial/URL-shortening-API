@@ -113,7 +113,7 @@ const Links = () => {
             </div>
             <button
               type="submit"
-              className="bg-[hsl(180,66%,49%)] py-2 md:py-3 text-white font-semibold rounded-md md:w-[25%] hover:bg-[hsl(180,66%,69%)]"
+              className="bg-[hsl(180,66%,49%)] py-2 md:py-3 hover:opacity-90 cursor-pointer text-white font-semibold rounded-md md:w-[25%] hover:bg-[hsl(180,66%,69%)]"
             >
               Shorten it!
             </button>
@@ -132,7 +132,7 @@ const Links = () => {
               <p className="text-[hsl(180,66%,49%)]">{link.shortened}</p>
               <button
                 onClick={() => copyToClipboard(link.shortened, index)}
-                className={`text-white p-2 font-semibold rounded-md ${
+                className={`text-white cursor-pointer p-2 font-semibold rounded-md ${
                   copiedIndex === index
                     ? "bg-[hsl(257,27%,26%)]"
                     : "bg-[hsl(180,66%,49%)] hover:bg-[hsl(180,66%,69%)]"
@@ -223,7 +223,7 @@ const Links = () => {
         <div className=" text-white text-center container mx-auto w-11/12 font-semibold py-18 space-y-2">
           <div className="container space-y-3 py-16">
             <h2 className="text-[28px]">Boost your links today</h2>
-            <button className="bg-[hsl(180,66%,49%)] py-2 px-10 rounded-full text-[20px] hover:bg-[hsl(180,66%,69%)]">
+            <button className="bg-[hsl(180,66%,49%)] cursor-pointer py-2 px-10 rounded-full text-[20px] hover:bg-[hsl(180,66%,69%)]">
               Get Started
             </button>
           </div>

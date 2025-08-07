@@ -9,7 +9,7 @@ const Hero = () => {
         {/* Text content - comes first in DOM but appears second on mobile */}
         <div className="md:w-1/2 text-center md:text-left">
           <div className="mb-6">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold md:leading-18 text-gray-800 mb-4">
               More than just shorter links
             </h1>
             <p className="text-gray-500 text-lg md:text-xl">
@@ -17,7 +17,7 @@ const Hero = () => {
             </p>
           </div>
           <div>
-            <button className="bg-[hsl(180,66%,49%)] hover:opacity-70 text-white font-bold py-3 px-8 rounded-full transition-opacity">
+            <button className="bg-[hsl(180,66%,49%)] cursor-pointer hover:opacity-70 text-white font-bold py-3 px-8 rounded-full transition-opacity">
               Get Started
             </button>
           </div>
