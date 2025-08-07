@@ -1,7 +1,35 @@
 @import "tailwindcss";
 .Boost{
-background-image: url(./assets/images/bg-boost-mobile.svg);
-background-position: 110% -400%;
+background-image: url(./assets/images/bg-boost-desktop.svg);
+background-position:center;
+background-size: cover;
 background-repeat: no-repeat;
-z-index: 2;
+z-index: 50;
+}
+.Boost input{
+background-image: url(./assets/images/bg-shorten-desktop.svg);
+background-position:center;
+background-size: cover;
+background-repeat: no-repeat;
+z-index: 50;
+overflow: hidden;
+}
+
+
+@media(max-width:600px){
+.Boost{
+background-image: url(./assets/images/bg-boost-mobile.svg);
+background-position:center;
+background-size: cover;
+background-repeat: no-repeat;
+z-index: 50;
+}
+.Boost input{
+background-image: url(./assets/images/bg-shorten-mobile.svg);
+background-position:center;
+background-size: cover;
+background-repeat: no-repeat;
+z-index: 50;
+overflow: hidden;
+}
 }

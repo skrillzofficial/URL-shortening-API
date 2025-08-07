@@ -24,11 +24,17 @@ const Hero = () => {
         </div>
 
         {/* Image - comes second in DOM but appears first on mobile */}
-        <div className="md:w-1/2">
+        <div className="md:w-1/2 relative">
+        {/* Mobile screen image displayed */}
           <img 
             src={Illustration} 
             alt="Person working on computer" 
-            className="w-full max-w-xl md:max-w-none ml-auto"
+            className="w-full md:hidden relative left-18 flex min-w-[400px] overflow:hidden md:max-w-none ml-auto"
+          />
+          <img 
+            src={Illustration} 
+            alt="Person working on computer" 
+            className="w-full min-w-[500px] relative left-20 hidden overflow:hidden md:flex md:max-w-none ml-auto"
           />
         </div>
       </div>

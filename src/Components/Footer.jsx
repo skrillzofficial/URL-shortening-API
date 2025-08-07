@@ -1,11 +1,12 @@
 import React from 'react';
-import { Facebook, Twitter, Instagram, Factory } from 'lucide-react';
+import { Facebook, Twitter, Instagram,} from 'lucide-react';
 import logo from "../assets/images/logo.svg";
+import pininterest from "../assets/images/icon-pinterest.svg"
 
 const Footer = () => {
   return (
-    <footer className="bg-[hsl(257,27%,26%)] py-12">
-      <div className="container mx-auto w-11/12 flex flex-col md:flex-row items-center justify-between">
+    <footer className="bg-[hsl(260,8%,14%)] py-12">
+      <div className="container mx-auto w-11/12 flex flex-col md:flex-row items-start justify-between">
         
         {/* Logo on the left */}
         <div className="mb-8 md:mb-0">
@@ -13,7 +14,7 @@ const Footer = () => {
         </div>
 
         {/* Middle links section */}
-        <div className="flex flex-col gap-12 mb-8 ">
+        <div className="flex flex-col md:flex-row gap-12 mb-8 ">
           {/* Features Column */}
           <div>
             <h3 className="text-white font-bold mb-4">Features</h3>
@@ -55,7 +56,7 @@ const Footer = () => {
             <Twitter size={24} />
           </a>
           <a href="#" className="text-white hover:text-gray-300">
-            <Factory size={24} />
+            <img src={pininterest} alt="pininterest logo" width={24} />
           </a>
           <a href="#" className="text-white hover:text-gray-300">
             <Instagram size={24} />

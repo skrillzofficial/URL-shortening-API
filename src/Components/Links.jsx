@@ -4,22 +4,24 @@ import detailedimg from "../assets/images/icon-detailed-records.svg";
 import fully from "../assets/images/icon-fully-customizable.svg";
 
 const Links = () => {
+    // Load saved links when component loads
+  const localStorageLinks = (() => {
+    const savedLinks = localStorage.getItem("shortenedLinks");
+    if (savedLinks) {
+      return(JSON.parse(savedLinks));
+    }
+  });
+
   // State for the URL input
   const [url, setUrl] = useState("");
   // State for error messages
   const [error, setError] = useState("");
   // State to store all shortened links
-  const [shortenedLinks, setShortenedLinks] = useState([]);
+  const [shortenedLinks, setShortenedLinks] = useState(localStorageLinks());
   // State to track which link was copied
   const [copiedIndex, setCopiedIndex] = useState(null);
 
-  // Load saved links when component loads
-  useEffect(() => {
-    const savedLinks = localStorage.getItem("shortenedLinks");
-    if (savedLinks) {
-      setShortenedLinks(JSON.parse(savedLinks));
-    }
-  }, []);
+  
 
   // Save links whenever they change
   useEffect(() => {
@@ -91,10 +93,10 @@ const Links = () => {
     <div className="pt-8 bg-[hsl(0,0%,75%)] mt-25">
       <div className="container mx-auto w-11/12 space-y-10 py-10 relative">
         {/* URL Shortener Form */}
-        <div className="p-5 bg-[hsl(257,27%,26%)] rounded-md absolute top-[-8%] left-[50%] -translate-x-1/2 w-full">
+        <div className="p-5   bg-[hsl(257,27%,26%)] rounded-md absolute top-[-8%] left-[50%] -translate-x-1/2 w-full">
           <form
             onSubmit={handleSubmit}
-            className="flex md:flex-row flex-col gap-3"
+            className="flex  md:flex-row flex-col gap-3"
           >
             <div className="flex-1">
               <input
@@ -105,7 +107,7 @@ const Links = () => {
                   setError("");
                 }}
                 placeholder="Shorten a link here.."
-                className={`py-3 pl-3 text-[12px] bg-white rounded-md w-full ${
+                className={`py-3 pl-3 text-[12px] bg-white rounded-md w-full  ${
                   error ? "border-red-500 border-2" : ""
                 }`}
               />
@@ -126,10 +128,10 @@ const Links = () => {
         {shortenedLinks.map((link, index) => (
           <div
             key={link.id}
-            className="p-2 flex flex-col bg-white mt-5 md:mt-3 rounded-md"
+            className="p-2 flex flex-col md:flex-row justify-between items-center bg-white mt-5 md:mt-3 rounded-md"
           >
-            <p className="px-3 py-1 truncate">{link.original}</p>
-            <div className="border border-gray-300 w-full"></div>
+            <p className="px-3 py-1 truncate w-[80%]">{link.original}</p>
+            <div className="border md:hidden border-gray-300 w-full"></div>
             <div className="flex flex-col md:flex-row md:items-center md:justify-between p-3 gap-2">
               <p className="text-[hsl(180,66%,49%)]">{link.shortened}</p>
               <button
@@ -221,8 +223,8 @@ const Links = () => {
       </div>
 
       {/* Keep your existing Boost section */}
-      <div className="Boost bg-[hsl(259,35%,14%)] container">
-        <div className="  text-white text-center container mx-auto w-11/12 font-semibold py-18 space-y-2">
+      <div className="Boost bg-[hsl(259,35%,14%)]  w-full mx-auto">
+        <div className=" text-white text-center container mx-auto w-11/12 font-semibold py-18 space-y-2">
           <div className="container space-y-3 py-16">
             <h2 className="text-[28px]">Boost your links today</h2>
             <button className="bg-[hsl(180,66%,49%)] py-2 px-10 rounded-full text-[20px] hover:bg-[hsl(180,66%,69%)]">
