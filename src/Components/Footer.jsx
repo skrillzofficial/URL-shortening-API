@@ -6,7 +6,7 @@ import pininterest from "../assets/images/icon-pinterest.svg"
 const Footer = () => {
   return (
     <footer className="bg-[hsl(260,8%,14%)] py-12">
-      <div className="container mx-auto w-11/12 flex flex-col md:flex-row items-start justify-between">
+      <div className="container mx-auto w-11/12 flex flex-col md:flex-row items-center text-center md:items-start justify-between">
         
         {/* Logo on the left */}
         <div className="mb-8 md:mb-0">
@@ -14,51 +14,51 @@ const Footer = () => {
         </div>
 
         {/* Middle links section */}
-        <div className="flex flex-col md:flex-row gap-12 mb-8 ">
+        <div className="flex flex-col  md:flex-row gap-12 mb-8 ">
           {/* Features Column */}
           <div>
             <h3 className="text-white font-bold mb-4">Features</h3>
-            <div className="flex flex-col gap-2">
-              <a href="#" className="text-white hover:text-gray-300">Link Shortening</a>
-              <a href="#" className="text-white hover:text-gray-300">Branded Links</a>
-              <a href="#" className="text-white hover:text-gray-300">Analytics</a>
+            <div className="flex flex-col opacity-70 gap-2">
+              <a href="#" className="text-white md:hover:text-[hsl(180,66%,49%)]">Link Shortening</a>
+              <a href="#" className="text-white md:hover:text-[hsl(180,66%,49%)]">Branded Links</a>
+              <a href="#" className="text-white md:hover:text-[hsl(180,66%,49%)]">Analytics</a>
             </div>
           </div>
 
           {/* Resources Column */}
           <div>
             <h3 className="text-white font-bold mb-4">Resources</h3>
-            <div className="flex flex-col gap-2">
-              <a href="#" className="text-white hover:text-gray-300">Blog</a>
-              <a href="#" className="text-white hover:text-gray-300">Developers</a>
-              <a href="#" className="text-white hover:text-gray-300">Support</a>
+            <div className="flex flex-col opacity-70 gap-2">
+              <a href="#" className="text-white md:hover:text-[hsl(180,66%,49%)]">Blog</a>
+              <a href="#" className="text-white md:hover:text-[hsl(180,66%,49%)]">Developers</a>
+              <a href="#" className="text-white md:hover:text-[hsl(180,66%,49%)]">Support</a>
             </div>
           </div>
 
           {/* Company Column */}
           <div>
             <h3 className="text-white font-bold mb-4">Company</h3>
-            <div className="flex flex-col gap-2">
-              <a href="#" className="text-white hover:text-gray-300">About</a>
-              <a href="#" className="text-white hover:text-gray-300">Our Team</a>
-              <a href="#" className="text-white hover:text-gray-300">Careers</a>
-              <a href="#" className="text-white hover:text-gray-300">Contact</a>
+            <div className="flex flex-col opacity-70 gap-2">
+              <a href="#" className="text-white md:hover:text-[hsl(180,66%,49%)]">About</a>
+              <a href="#" className="text-white md:hover:text-[hsl(180,66%,49%)]">Our Team</a>
+              <a href="#" className="text-white md:hover:text-[hsl(180,66%,49%)]">Careers</a>
+              <a href="#" className="text-white md:hover:text-[hsl(180,66%,49%)]">Contact</a>
             </div>
           </div>
         </div>
 
         {/* Social icons on the right */}
         <div className="flex gap-4">
-          <a href="#" className="text-white hover:text-gray-300">
+          <a href="#" className="text-white hover:md:hover:text-[hsl(180,66%,49%)]">
             <Facebook size={24} />
           </a>
-          <a href="#" className="text-white hover:text-gray-300">
+          <a href="#" className="text-white md:hover:text-[hsl(180,66%,49%)]">
             <Twitter size={24} />
           </a>
-          <a href="#" className="text-white hover:text-gray-300">
+          <a href="#" className="text-white md:hover:text-[hsl(180,66%,49%)]">
             <img src={pininterest} alt="pininterest logo" width={24} />
           </a>
-          <a href="#" className="text-white hover:text-gray-300">
+          <a href="#" className="text-white md:hover:text-[hsl(180,66%,49%)]">
             <Instagram size={24} />
           </a>
         </div>

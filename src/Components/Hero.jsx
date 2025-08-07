@@ -29,12 +29,12 @@ const Hero = () => {
           <img 
             src={Illustration} 
             alt="Person working on computer" 
-            className="w-full md:hidden relative left-18 flex min-w-[400px] overflow:hidden md:max-w-none ml-auto"
+            className="w-full md:hidden relative overflow-hidden flex min-w-[300px] md:max-w-none ml-auto"
           />
           <img 
             src={Illustration} 
             alt="Person working on computer" 
-            className="w-full min-w-[500px] relative left-20 hidden overflow:hidden md:flex md:max-w-none ml-auto"
+            className="w-full min-w-[500px] overflow-hidden relative left-20 hidden md:flex md:max-w-none ml-auto"
           />
         </div>
       </div>
