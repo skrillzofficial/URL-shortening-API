@@ -4,13 +4,11 @@ import detailedimg from "../assets/images/icon-detailed-records.svg";
 import fully from "../assets/images/icon-fully-customizable.svg";
 
 const Links = () => {
-    // Load saved links when component loads
-  const localStorageLinks = (() => {
+  // Load saved links when component loads
+  const localStorageLinks = () => {
     const savedLinks = localStorage.getItem("shortenedLinks");
-    if (savedLinks) {
-      return(JSON.parse(savedLinks));
-    }
-  });
+    return savedLinks ? JSON.parse(savedLinks) : []; // Fallback to empty array
+  };
 
   // State for the URL input
   const [url, setUrl] = useState("");
@@ -20,8 +18,6 @@ const Links = () => {
   const [shortenedLinks, setShortenedLinks] = useState(localStorageLinks());
   // State to track which link was copied
   const [copiedIndex, setCopiedIndex] = useState(null);
-
-  
 
   // Save links whenever they change
   useEffect(() => {
