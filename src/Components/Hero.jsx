@@ -17,7 +17,7 @@ const Hero = () => {
             </p>
           </div>
           <div>
-            <button className="bg-[hsl(180,66%,49%)] cursor-pointer hover:opacity-70 text-white font-bold py-3 px-8 rounded-full transition-opacity">
+            <button disabled className="bg-[hsl(180,66%,49%)] cursor-pointer pointer-events-none  hover:opacity-70 text-white font-bold py-3 px-8 rounded-full transition-opacity">
               Get Started
             </button>
           </div>
@@ -34,7 +34,7 @@ const Hero = () => {
           <img 
             src={Illustration} 
             alt="Person working on computer" 
-            className="w-full min-w-[500px] overflow-hidden relative left-20 hidden md:flex md:max-w-none ml-auto"
+            className="w-[600px] overflow-hidden left-0 hidden md:flex  ml-auto"
           />
         </div>
       </div>

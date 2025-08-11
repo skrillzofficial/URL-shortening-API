@@ -15,19 +15,19 @@ const Nav = () => {
           <div className="hidden md:flex gap-6">
             <a
               href="#"
-              className="text-gray-600 font-bold opacity-70  hover:text-gray-900 hover:opacity-100 hover:font-semibold"
+              className="text-gray-600 font-bold opacity-70 pointer-events-none  hover:text-gray-900 hover:opacity-100 hover:font-semibold"
             >
               Features
             </a>
             <a
               href="#"
-              className="text-gray-600 font-bold opacity-70  hover:text-gray-900 hover:opacity-100 hover:font-semibold"
+              className="text-gray-600 font-bold opacity-70 pointer-events-none  hover:text-gray-900 hover:opacity-100 hover:font-semibold"
             >
               Pricing
             </a>
             <a
               href="#"
-              className="text-gray-600 font-bold opacity-70  hover:text-gray-900 hover:opacity-100 hover:font-semibold"
+              className="text-gray-600 font-bold opacity-70 pointer-events-none   hover:text-gray-900 hover:opacity-100 hover:font-semibold"
             >
               Resources
             </a>
@@ -37,10 +37,10 @@ const Nav = () => {
         {/* Right section with both Authentication buttons */}
         <div className="flex items-center gap-4">
           <div className="hidden md:flex gap-4 ">
-            <button className="text-gray-600 cursor-pointer opacity-70 font-bold hover:text-gray-900">
+            <button disabled className="text-gray-600 cursor-pointer pointer-events-none  opacity-70 font-bold hover:text-gray-900">
               Login
             </button>
-            <button className="bg-[hsl(180,66%,49%)] cursor-pointer opacity-70 font-bold text-white px-4 py-2 rounded-full hover:bg-[hsl(180,66%,49%)] hover:opacity-40">
+            <button disabled className="bg-[hsl(180,66%,49%)] cursor-pointer pointer-events-none  opacity-70 font-bold text-white px-4 py-2 rounded-full hover:bg-[hsl(180,66%,49%)] hover:opacity-40">
               Sign Up
             </button>
           </div>
