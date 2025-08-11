@@ -4,84 +4,128 @@ import detailedimg from "../assets/images/icon-detailed-records.svg";
 import fully from "../assets/images/icon-fully-customizable.svg";
 
 const Links = () => {
-  // Load saved links when component loads
+  // Load saved links from localStorage
   const localStorageLinks = () => {
     const savedLinks = localStorage.getItem("shortenedLinks");
-    return savedLinks ? JSON.parse(savedLinks) : []; // Fallback to empty array
+    return savedLinks ? JSON.parse(savedLinks) : [];
   };
 
-  // State for the URL input
   const [url, setUrl] = useState("");
-  // State for error messages
   const [error, setError] = useState("");
-  // State to store all shortened links
   const [shortenedLinks, setShortenedLinks] = useState(localStorageLinks());
-  // State to track which link was copied
   const [copiedIndex, setCopiedIndex] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  // Save links whenever they change
+  // Save links to localStorage when they change
   useEffect(() => {
     localStorage.setItem("shortenedLinks", JSON.stringify(shortenedLinks));
   }, [shortenedLinks]);
 
-  // Function to shorten the URL
+  // Check if URL is already shortened
+  const isAlreadyShortened = (url) => {
+    const shortenerDomains = [
+      'tinyurl.com',
+      'bit.ly',
+      'short.link',
+      't.co',
+      'goo.gl',
+      'ow.ly',
+      'is.gd',
+      'buff.ly',
+      'tiny.cc'
+    ];
+
+    try {
+      const urlObj = new URL(url);
+      return shortenerDomains.some(domain => 
+        urlObj.hostname.includes(domain) || 
+        urlObj.hostname.endsWith(domain)
+      );
+    } catch (err) {
+      return false;
+    }
+  };
+
+  // Improved URL validation
+  const isValidUrl = (urlString) => {
+    try {
+      new URL(urlString);
+      return true;
+    } catch (err) {
+      return false;
+    }
+  };
+
+  // Shorten URL with better error handling
   const shortenUrl = async (inputUrl) => {
     try {
       const response = await fetch(
         `https://tinyurl.com/api-create.php?url=${encodeURIComponent(inputUrl)}`
       );
+      
+      if (!response.ok) throw new Error("API request failed");
+      
       const shortUrl = await response.text();
+      
+      if (shortUrl.startsWith("Error:")) {
+        throw new Error(shortUrl);
+      }
+      
       return shortUrl;
     } catch (err) {
       throw new Error("Failed to shorten URL");
     }
   };
 
-  // Handle form submission
+  // Form submission handler
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
+    setIsLoading(true);
 
-    // Check if input is empty
-    if (!url) {
+    // Validate URL before processing
+    if (!url.trim()) {
       setError("Please add a link");
+      setIsLoading(false);
       return;
     }
 
-    // Check if URL is valid (starts with http:// or https://)
-    if (!url.startsWith("http://") && !url.startsWith("https://")) {
-      setError("Please include http:// or https://");
+    if (!isValidUrl(url)) {
+      setError("Please enter a valid URL (e.g., https://example.com)");
+      setIsLoading(false);
+      return;
+    }
+
+    if (isAlreadyShortened(url)) {
+      setError("This appears to be an already shortened URL. Please provide the original long URL.");
+      setIsLoading(false);
       return;
     }
 
     try {
-      // Clear any previous errors
-      setError("");
-
-      // Get shortened URL from API
       const shortUrl = await shortenUrl(url);
-
-      // Add to our list of shortened links
+      
       setShortenedLinks([
         {
           original: url,
           shortened: shortUrl,
-          id: Date.now(), // Unique ID for each link
+          id: Date.now(),
         },
         ...shortenedLinks,
       ]);
-
-      // To clear the input field
+      
       setUrl("");
     } catch (err) {
-      setError("Failed to shorten URL. Please try again.");
+      setError(err.message || "Failed to shorten URL. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  // Copy shortened link to clipboard
+  // Copy to clipboard function
   const copyToClipboard = (text, index) => {
     navigator.clipboard.writeText(text);
     setCopiedIndex(index);
-    // To reset after 2 seconds
     setTimeout(() => setCopiedIndex(null), 2000);
   };
 
@@ -223,7 +267,10 @@ const Links = () => {
         <div className=" text-white text-center container mx-auto w-11/12 font-semibold py-18 space-y-2">
           <div className="container space-y-3 py-16">
             <h2 className="text-[28px]">Boost your links today</h2>
-            <button disabled className="bg-[hsl(180,66%,49%)] cursor-pointer pointer-events-none  py-2 px-10 rounded-full text-[20px] hover:bg-[hsl(180,66%,69%)]">
+            <button
+              disabled
+              className="bg-[hsl(180,66%,49%)] cursor-pointer pointer-events-none  py-2 px-10 rounded-full text-[20px] hover:bg-[hsl(180,66%,69%)]"
+            >
               Get Started
             </button>
           </div>
